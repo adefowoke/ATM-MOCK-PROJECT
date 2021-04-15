@@ -1,6 +1,21 @@
 class Budget:
+    """
+    The Budget class will be used to create objects
+    with different categories such as food, clothing, entertainment
+    and so on.
+    keyword Argument:
+    food =
+    clothing
+    entertainment
+    """
 
     def __init__(self, ):
+        """
+        This sets the initial value of each category when
+        an instance of the class is created. The value in each
+        category can be updated either by adding to the value or
+        subtracting from it.
+        """
         self.food = 0
         self.clothing = 0
         self.entertainment = 0
