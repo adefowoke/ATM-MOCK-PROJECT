@@ -5,18 +5,25 @@ import random
 User_Database = {}
 
 
-# create the date function
 def date_time():
+    """ function will print the current date in your timezone """
     now = datetime.now().strftime("%B %d %Y, %H:%M:%S")
     print(now)
 
 
-# function to generate random account number
 def generate_account_number():
+    """ function will generate 9 random numbers between 1 and 9 """
     return random.randint(111111111, 999999999)
 
 
 def check_account_balance(user_account_number):
+    """
+    function will check if the user has made any previous deposit
+    if there has been previous deposit, then the length of the user_database
+    is extended by 1, so the amount will be at index 5, and return the value
+    if nil previous deposit, there is no index 5, so it returns the error.
+
+    """
     try:
         value = User_Database.get(int(user_account_number))[5]
         print(value)
@@ -29,6 +36,12 @@ def complaint():
 
 
 def close_account(user_account_number):
+    """
+    this gives the user the option of deleting account from the database, if it does
+    exist, if not it returns the error message.
+    :param user_account_number: the dictionary key to access the user information
+    :return:
+    """
     user_input = int(input("Are you sure you want to close your account, if yes, please enter 1"))
     if user_input == 1:
         try:
@@ -57,6 +70,15 @@ def deposit(account_number):
 
 
 def register():
+    """
+    registers new user by taking user input and forming a dictionary with the account
+    number as key and a list of other information as value.
+    :return: the user information as inputed except the account number which is randomly
+    generated.
+
+    The bank_transaction then runs giving the user the option to choose from.
+
+    """
     print("Welcome to Zuri Bank, \nkindly follow the instructions to create an account with us")
     first_name = input("\nWhat is your first name? \n").title()
     last_name = input("\nWhat is your last name? \n").title()
